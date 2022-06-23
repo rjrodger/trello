@@ -215,6 +215,10 @@ Trello.prototype.delMemberFromCard = function (cardId, memberId, callback) {
     return makeRequest(rest.del, this.uri + '/1/cards/' + cardId + '/members/' + memberId, {query: query}, callback);
 };
 
+Trello.prototype.getBoard = function(boardId, callback) {
+    return makeRequest(rest.get, this.uri + '/1/boards/' + boardId, {query: this.createQuery()}, callback);
+};
+
 Trello.prototype.getBoards = function(memberId, callback) {
     return makeRequest(rest.get, this.uri + '/1/members/' + memberId + '/boards', {query: this.createQuery()}, callback);
 };
